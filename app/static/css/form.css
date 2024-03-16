@@ -1,0 +1,32 @@
+main .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+}
+
+
+form{
+    background-color: white;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 30px;
+    width: 100%;
+    column-gap: 20px;
+}
+
+.title{
+    grid-column: span 2;
+}
+.desc{
+    grid-column: span 2;
+}
+
+.photo{
+    margin-top: 15px;
+    grid-column: span 2;
+}
+
+
+
