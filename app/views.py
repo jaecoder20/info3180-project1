@@ -8,7 +8,8 @@ This file contains the routes for your application.
 from app import app
 from flask import render_template, request, redirect, url_for, flash
 from app.forms import NewProperty
-
+from .models import Property
+from app import app, db
 ###
 # Routing for your application.
 ###
@@ -37,8 +38,23 @@ def addProperty():
         property_type = form.property_type.data
         description = form.description.data
         photo = form.photo.data
+        new_property = Property(
+            title=title,
+            type = property_type,
+            no_bedrooms=bedrooms,
+            no_bathrooms=bathrooms,
+            location=location,
+            price=price,
+            description=description,
+            image_name=photo.filename  # Assuming you want to store the filename in the database
+        )
+        
+        # Add the new property to the database session
+        db.session.add(new_property)
+        db.session.commit()
+        
         flash('You have successfully added a new property', 'success')
-        return redirect(url_for('home'))
+        return redirect(url_for('properties'))
     flash_errors(form)
     return render_template('newProperty.html', form=form)
 ###
