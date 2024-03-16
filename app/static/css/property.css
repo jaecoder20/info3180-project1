@@ -1,0 +1,89 @@
+.property-container {
+    display: flex;
+    justify-content: center;
+    margin: 4rem 0;
+    background-color: white;
+    width: 70%;
+    height: 45vh;
+}
+
+.property-container .property {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    align-items: center;
+    width: 80%;
+    height: auto; 
+    box-shadow: 0 16px 40px rgba(49, 49, 49, 0.1);
+    padding: 20px; 
+}
+
+.property-image {
+    width: 90%; 
+    height: 100%;
+}
+
+.property-photo {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.property-details {
+    padding: 20px;
+
+
+}
+
+.property-title {
+    font-size: 24px; 
+    margin-bottom: 10px; 
+}
+
+.property-meta {
+    display: flex;
+    margin-bottom: 10px; 
+}
+
+.badge {
+    display: inline-block;
+    padding: 5px 15px; 
+    background-color: #3a80f5;
+    color: white;
+    border-radius: 60px;
+}
+
+.property-type {
+    background-color: #fbbe24;
+}
+
+.property-description {
+    font-size: 18px;
+    margin-bottom: 20px; 
+}
+
+.property-amenities {
+    display: flex;
+    align-items: center;
+}
+
+.property-amenities div {
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+}
+
+.email-realtor {
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    background-color: #14b8a7;
+    padding: 15px 32px;
+    margin-top: 1rem;
+    cursor: pointer; 
+    
+}
+
+.property-info{
+    color: black;
+    width: 120px;
+}
+

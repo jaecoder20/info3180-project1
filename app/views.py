@@ -57,8 +57,9 @@ def addProperty():
         db.session.add(new_property)
         db.session.commit()
         
-        flash('You have successfully added a new property', 'success')
-        return redirect(url_for('home'))
+        flash('Property was successfully created', 'success')
+
+        return redirect(url_for('display_properties'))
     flash_errors(form)
     return render_template('newProperty.html', form=form)
 
@@ -75,6 +76,11 @@ def get_image(filename):
 def display_properties():
     properties = db.session.query(Property).all()
     return render_template('properties.html', properties=properties)
+
+@app.route('/properties/<propertyid>')
+def display_property(propertyid):
+    property = Property.query.get(propertyid)
+    return render_template('property.html', property=property)
 
 ###
 # The functions below should be applicable to all Flask apps.
