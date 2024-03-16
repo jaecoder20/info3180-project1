@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/properties.css') }}">
+{% endblock %}
+
+
+{% block main %}
+<h1>Properties</h1>
+    <div id="properties">
+        {% if properties %}
+            {% for property in properties %}
+            <div class="property">
+                <img class="property-img" src="{{ url_for('get_image', filename=property.image_name) }}" alt="File">
+                <div class="property-info">
+                    <p class="title">{{ property.title }}</p>
+                    <p class="location">
+                        <span class="material-icons-outlined"></span>{{ property.location }}
+                    </p>
+                    <div class="price">
+                        <span>${{ property.price }}</span>
+                    </div>
+                </div>
+                <a class="view-btn" href="{{ url_for('display_properties', propertyid=property.id) }}">
+                    View Property
+                </a>
+            </div>
+            {% endfor %}
+  {% endif %}
+    </div>
+{% endblock %}
+
+{% block js %}{% endblock %}
